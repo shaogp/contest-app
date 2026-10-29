@@ -1,0 +1,13 @@
+{
+  "name": "ai-contest-survey",
+  "version": "1.0.0",
+  "description": "2026新生人工智能比赛参与调查 + 抽奖",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

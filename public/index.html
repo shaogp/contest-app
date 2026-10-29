@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>2026 年程序设计新生赛 · 参赛报名统计</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-deco"></div>
+
+  <main class="card">
+    <header class="header">
+      <div class="logo">💻</div>
+      <h1>2026 年程序设计新生赛</h1>
+      <p class="subtitle">你是否已经参赛报名？</p>
+    </header>
+
+    <!-- 顶部报名统计 -->
+    <section class="stats-bar">
+      <div class="stat">
+        <div class="stat-num" id="stat-participate">0</div>
+        <div class="stat-label">已报名</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num" id="stat-total">0</div>
+        <div class="stat-label">总填写</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num" id="stat-lottery">0</div>
+        <div class="stat-label">已抽奖</div>
+      </div>
+    </section>
+
+    <!-- 步骤 1：是否报名 -->
+    <section id="step-join" class="step">
+      <div class="btn-group">
+        <button class="btn btn-primary" id="btn-yes">是，已报名</button>
+        <button class="btn btn-ghost" id="btn-no">否，未报名</button>
+      </div>
+    </section>
+
+    <!-- 步骤 2：填写学号 -->
+    <section id="step-form" class="step hidden">
+      <div class="form-group">
+        <label for="studentId">学号（用于参赛人数统计）</label>
+        <input type="text" id="studentId" placeholder="请输入你的学号" autocomplete="off" inputmode="numeric" />
+        <p class="hint" id="grade-hint">
+          学号前缀对应年级：大一 <b>2026</b> · 大二 <b>2025</b> · 大三 <b>2024</b>
+        </p>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-ghost btn-sm" id="btn-back">返回</button>
+        <button class="btn btn-primary" id="btn-submit" disabled>提交</button>
+      </div>
+    </section>
+
+    <!-- 结果区 -->
+    <section id="step-result" class="step hidden">
+      <div id="result-banner" class="banner"></div>
+
+      <div id="lottery-area" class="lottery-area">
+        <button class="btn btn-lottery" id="btn-lottery">🎁 参与抽奖</button>
+        <p class="tip">提交后即可抽奖一次</p>
+      </div>
+
+      <button class="btn btn-reopen-big" id="btn-reopen">🔄 重新选择</button>
+    </section>
+
+    <footer class="footer">
+      <span>每人限提交一次 · 基于设备识别</span>
+    </footer>
+  </main>
+
+  <!-- 抽奖卡片弹窗 -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-mask"></div>
+    <div class="modal-body">
+      <div class="card-flip" id="card-flip">
+        <div class="card-face card-back">
+          <div class="card-back-inner">
+            <div class="gift">🎁</div>
+            <div class="card-title">神秘卡片</div>
+            <div class="card-sub">点击翻面查看</div>
+          </div>
+        </div>
+        <div class="card-face card-front" id="card-front">
+          <div class="card-emoji" id="card-emoji">🍀</div>
+          <div class="card-name" id="card-name">健康卡</div>
+          <div class="card-desc" id="card-desc">愿你天天身体倍儿棒</div>
+          <button class="btn btn-primary btn-sm" id="btn-close-modal">收下祝福</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <div id="music-bar" class="music-bar hidden">
+    <span id="music-name">背景音乐</span>
+    <button id="music-toggle" type="button">播放</button>
+  </div>
+
+  <script src="music.js?v=10"></script>
+  <script src="app.js?v=10"></script>
+</body>
+</html>
